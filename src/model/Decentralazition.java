@@ -8,7 +8,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Decentralazition {
-	int id ;
+	int idRole ;
+	String nameRole;
 	int addEvery;
 	int editEvery;
 	int delEvery;
@@ -18,5 +19,4 @@ public class Decentralazition {
 	int addAnother;
 	int editAnother;
 	int delAnother;
-	int idRole;
 }

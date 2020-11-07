@@ -1,5 +1,7 @@
 package util;
 
+import java.util.ArrayList;
+
 public class ImgeasUtils {
 	public static String ChangeImgeasToNameCol(int idNameCol) {
 		String nameCol=null;
@@ -17,15 +19,5 @@ public class ImgeasUtils {
 			break;
 		}
 		return nameCol;
-	}
-	public static String ChangeStatusToNamePicture(int status) {
-		String namePicture=null;
-		switch (status) {
-		case 0: namePicture = "cancel.png";break;
-		case 1: namePicture = "tick.png";break;
-		default:
-			break;
-		}
-		return namePicture;
 	}
 }

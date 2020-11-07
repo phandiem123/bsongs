@@ -31,10 +31,6 @@ public class AdminDasgboardDecentController extends HttpServlet {
 		
 		request.setAttribute("listUser", listUser);
 		
-		RoleDao  roleDao = new RoleDao();
-		List<Role> listRole = roleDao.findAll();
-		Role itermRoleForHead = roleDao.findById(idRole);
-		request.setAttribute("listRole",listRole );
 		request.setAttribute("itermRoleForHead",itermRoleForHead );
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/view/admin/decent/dashboard.jsp");

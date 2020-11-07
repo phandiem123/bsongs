@@ -11,9 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.DecentralazitionDao;
-import dao.RoleDao;
 import model.Decentralazition;
-import model.Role;
 import util.ImgeasUtils;
 
 public class AdminIndexDecentController extends HttpServlet {
@@ -29,13 +27,27 @@ public class AdminIndexDecentController extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		request.setCharacterEncoding("UTF-8");
 
-		RoleDao roleDao = new RoleDao();
-		List<Role> listRole = roleDao.findAll();
-		request.setAttribute("listRole", listRole);
 
 		DecentralazitionDao  decentralazitionDao = new DecentralazitionDao();
 		List<Decentralazition> listDecentralazition = decentralazitionDao.findAll();
-		request.setAttribute("listDecentralazition", listDecentralazition);
+		List<Decentralazition> listDecent = decentralazitionDao.findAll();
+		int [][] status = new int [listDecentralazition.size()][9];
+		for (Decentralazition objDecentralazition : listDecentralazition) {
+			int i =1;
+			while(i<=listDecentralazition.size()){
+				status[i][1]= objDecentralazition.getAddEvery();
+				status[i][2]=objDecentralazition.getEditEvery();
+				status[i][3]=objDecentralazition.getDelEvery();
+				status[i][4]= objDecentralazition.getAddSelf();
+				status[i][5]=objDecentralazition.getEditSelf();
+				status[i][6]=objDecentralazition.getDelSelf();
+				status[i][7]= objDecentralazition.getAddAnother();
+				status[i][8]=objDecentralazition.getEditAnother();
+				status[i][9]=objDecentralazition.getDelAnother();
+				request.setAttribute("listDecentralazition"+i+"", listDecentralazition);
+			}
+		}
+		
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/view/admin/decent/index.jsp");
 		rd.forward(request, response);

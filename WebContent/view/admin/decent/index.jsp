@@ -69,20 +69,13 @@
 										<th>Danh sách</th>
 									</tr>
 								</thead>
-								<%-- <%
-									if (request.getAttribute("listDecentralazition") != null) {
-									List<Decentralazition> listRole = (List<Decentralazition>) request.getAttribute("listDecentralazition");
-									if (listRole.size() > 0) {
-										for (Decentralazition objRole : listRole) {
-								%> --%>
 								<tbody>
-
-										
 										<%
 											if (request.getAttribute("listDecentralazition") != null) {
 											List<Decentralazition> listDecentralazition = (List<Decentralazition>) request.getAttribute("listDecentralazition");
 											if (listDecentralazition.size() > 0) {
-												for (Decentralazition objRole : listDecentralazition) {
+												
+											}
 										%>
 									<tr>
 										<td><%=123%></td>

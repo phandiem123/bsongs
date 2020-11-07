@@ -19,10 +19,10 @@ public class DecentralazitionDao extends AbstractDao {
 			st = conn.createStatement();
 			rs = st.executeQuery(SQL);
 			while (rs.next()) {
-				Decentralazition decentralazition = new Decentralazition(rs.getInt("id"), rs.getInt("addEvery"),
+				Decentralazition decentralazition = new Decentralazition(rs.getInt("idRole"), rs.getString("nameRole"),rs.getInt("addEvery"),
 						rs.getInt("editEvery"), rs.getInt("delEvery"), rs.getInt("addSelf"), rs.getInt("editSelf"),
 						rs.getInt("delSelf"), rs.getInt("addAnother"), rs.getInt("editAnother"),
-						rs.getInt("delAnother"), rs.getInt("idRole"));
+						rs.getInt("delAnother") );
 				list.add(decentralazition);
 			}
 		} catch (SQLException e) {
