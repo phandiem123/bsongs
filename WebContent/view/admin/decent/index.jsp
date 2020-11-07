@@ -1,4 +1,3 @@
-<%@page import="model.Role"%>
 <%@page import="model.Decentralazition"%>
 <%@page import="model.Categories"%>
 <%@page import="java.util.List"%>
@@ -44,10 +43,9 @@
 							<%
 								if (request.getParameter("msg") != null) {
 								String msg = request.getParameter("msg");
-								if ("ok".equals(msg)) {
+								if ("editok".equals(msg)) {
 							%>
-							<div class="alert alert-primary" role="alert">Đã thêm thành
-								công</div>
+							<div class="alert alert-primary" role="alert">Bạn đã phân quyền thành công</div>
 							<%
 								}
 							}
@@ -70,36 +68,67 @@
 									</tr>
 								</thead>
 								<tbody>
+
+										
 										<%
 											if (request.getAttribute("listDecentralazition") != null) {
 											List<Decentralazition> listDecentralazition = (List<Decentralazition>) request.getAttribute("listDecentralazition");
 											if (listDecentralazition.size() > 0) {
-												
-											}
+												for (Decentralazition objDecentralazition : listDecentralazition) {
 										%>
 									<tr>
-										<td><%=123%></td>
-										<%
-											for (int i = 0; i <= 8; i++) {
-												
-										%>
+										<td><%=objDecentralazition.getNameRole()%></td>
 										<td><a href="javascript:void(0)" title=""><img
-												id="<%=0 %>" class="<%=listDecentralazition.get(0).getIdRole() %>" alt=""
-												src="<%=request.getContextPath()%>/uploads/img/tick.png"
+												id="<%=objDecentralazition.getIdRole() %>" class="addEvery" alt=""
+												src="<%=request.getContextPath()%>/uploads/img/<%if(objDecentralazition.getAddEvery()==1) out.print("tick.png"); else out.print("cancel.png");%>"
 												style="width: 45px; height: 45px; text-align: center;"></a>
 										</td>
-										<%} %>
+										<td><a href="javascript:void(0)" title=""><img
+												id="<%=objDecentralazition.getIdRole() %>" class="editEvery" alt=""
+												src="<%=request.getContextPath()%>/uploads/img/<%if(objDecentralazition.getEditEvery()==1) out.print("tick.png"); else out.print("cancel.png");%>"
+												style="width: 45px; height: 45px; text-align: center;"></a>
+										</td>
+										<td><a href="javascript:void(0)" title=""><img
+												id="<%=objDecentralazition.getIdRole() %>" class="delEvery" alt=""
+												src="<%=request.getContextPath()%>/uploads/img/<%if(objDecentralazition.getDelEvery()==1) out.print("tick.png"); else out.print("cancel.png");%>"
+												style="width: 45px; height: 45px; text-align: center;"></a>
+										</td>
+										<td><a href="javascript:void(0)" title=""><img
+												id="<%=objDecentralazition.getIdRole() %>" class="addSelf" alt=""
+												src="<%=request.getContextPath()%>/uploads/img/<%if(objDecentralazition.getAddSelf()==1) out.print("tick.png"); else out.print("cancel.png");%>"
+												style="width: 45px; height: 45px; text-align: center;"></a>
+										</td>
+										<td><a href="javascript:void(0)" title=""><img
+												id="<%=objDecentralazition.getIdRole() %>" class="editSelf" alt=""
+												src="<%=request.getContextPath()%>/uploads/img/<%if(objDecentralazition.getEditSelf()==1) out.print("tick.png"); else out.print("cancel.png");%>"
+												style="width: 45px; height: 45px; text-align: center;"></a>
+										</td>
+										<td><a href="javascript:void(0)" title=""><img
+												id="<%=objDecentralazition.getIdRole() %>" class="delSelf" alt=""
+												src="<%=request.getContextPath()%>/uploads/img/<%if(objDecentralazition.getDelSelf()==1) out.print("tick.png"); else out.print("cancel.png");%>"
+												style="width: 45px; height: 45px; text-align: center;"></a>
+										</td>
+										<td><a href="javascript:void(0)" title=""><img
+												id="<%=objDecentralazition.getIdRole() %>" class="addAnother" alt=""
+												src="<%=request.getContextPath()%>/uploads/img/<%if(objDecentralazition.getDelAnother()==1) out.print("tick.png"); else out.print("cancel.png");%>"
+												style="width: 45px; height: 45px; text-align: center;"></a>
+										</td>
+										<td><a href="javascript:void(0)" title=""><img
+												id="<%=objDecentralazition.getIdRole() %>" class="editAnother" alt=""
+												src="<%=request.getContextPath()%>/uploads/img/<%if(objDecentralazition.getEditAnother()==1) out.print("tick.png"); else out.print("cancel.png");%>"
+												style="width: 45px; height: 45px; text-align: center;"></a>
+										</td>
+										<td><a href="javascript:void(0)" title=""><img
+												id="<%=objDecentralazition.getIdRole() %>" class="delAnother" alt=""
+												src="<%=request.getContextPath()%>/uploads/img/<%if(objDecentralazition.getDelAnother()==1) out.print("tick.png"); else out.print("cancel.png");%>"
+												style="width: 45px; height: 45px; text-align: center;"></a>
+										</td>
 										 <td><a
-											href="<%=request.getContextPath()%>/admin/decent/dashboard?idRole=<%=listDecentralazition.get(0).getIdRole()%>">Click
+											href="<%=request.getContextPath()%>/admin/decent/dashboard?idRole=<%=objDecentralazition.getIdRole()%>">Click
 												here</a></td> 
 										<%}}} %>
 									</tr>
 								</tbody>
-								<%-- <%
-									}
-								}
-								}
-								%> --%>
 							</table>
 
 						</div>

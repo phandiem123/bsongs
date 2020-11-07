@@ -157,15 +157,11 @@ public class UserDao extends AbstractDao {
 	public int editUser(int idUser,User user) {
 		int result = 0;
 		conn = DBConnectionUtil.getConnection();
-		String sql = "UPDATE users SET username = ? , password = ? , fullname = ? , idRole = ? WHERE id =? ";
+		String sql = "UPDATE users SET idRole = ? WHERE id =? ";
 		try {
 			pst = conn.prepareStatement(sql);
-
-			pst.setString(1, user.getUsername());
-			pst.setString(2, user.getPassword());
-			pst.setString(3, user.getFullname());
-			pst.setInt(5, user.getIdRole());
-			pst.setInt(5, user.getId());
+			pst.setInt(1, user.getIdRole());
+			pst.setInt(2, user.getId());
 			result = pst.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

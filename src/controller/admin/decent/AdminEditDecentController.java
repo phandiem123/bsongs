@@ -19,20 +19,19 @@ public class AdminEditDecentController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		int idUser = Integer.parseInt(request.getParameter("idUser")) ;
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
-		String fullname = request.getParameter("fullname");
-		int idRole = Integer.parseInt(request.getParameter("idRole"));
-		User user = new User(idUser, username, password, fullname, idRole);
-		UserDao userDao = new UserDao();
-		if(userDao.editUser(idUser, user)>0) {
-			response.sendRedirect(request.getContextPath() + "/admin/decent/index?msg=editok");
-		}
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		int idUser = Integer.parseInt(request.getParameter("idUser")) ;
+		System.out.println(idUser);
+		int idRole = Integer.parseInt(request.getParameter("idRole"));
+		User user = new User(idUser, "", "", "", idRole);
+		UserDao userDao = new UserDao();
+		if(userDao.editUser(idUser, user)>0) {
+			response.sendRedirect(request.getContextPath() + "/admin/decent/index?msg=editok");
+		}
 		
 	}
 

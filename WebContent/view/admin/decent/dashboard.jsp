@@ -1,4 +1,3 @@
-<%@page import="model.Role"%>
 <%@page import="model.Decentralazition"%>
 <%@page import="model.Categories"%>
 <%@page import="java.util.List"%>
@@ -13,8 +12,8 @@
 				<h2>
 					Danh sách
 					<%
-					Role itermRoleForHead = (Role) request.getAttribute("itermRoleForHead");
-				out.print(itermRoleForHead.getNameRole());
+					Decentralazition itermRoleForHead = (Decentralazition) request.getAttribute("itermRoleForHead");
+					out.print(itermRoleForHead.getNameRole());
 				%>
 				</h2>
 			</div>
@@ -38,13 +37,13 @@
 								}
 							}
 							%>
+							<form action="<%=request.getContextPath()%>/admin/decent/edit" method="post">
 								<table class="table table-striped table-bordered table-hover"
 									id="dataTables-example">
 									<thead>
 										<tr>
 											<td>ID</td>
 											<td>Username</td>
-											<td>Password</td>
 											<td>Fullname</td>
 											<td>Vai trò</td>
 										</tr>
@@ -57,20 +56,21 @@
 									%>
 									<tbody>
 										<tr>
-											<td name="idUser"><%=objUser.getId()%></td>
-											<td name="username"><%=objUser.getUsername()%></td>
-											<td name="password"><%=objUser.getPassword()%></td>
-											<td name="fullname"><%=objUser.getFullname()%></td>
+											<td><%=objUser.getId()%>
+											<input  name="idUser" value="<%=objUser.getId()%>" type="hidden">
+											</td>
+											<td id="username"><%=objUser.getUsername()%></td>
+											<td id="fullname"><%=objUser.getFullname()%></td>
 											<td><select name="idRole">
 													<option value="<%=itermRoleForHead.getIdRole()%>"
 														selected="selected"><%=itermRoleForHead.getNameRole()%></option>
 													<%
-														if (request.getAttribute("listRole") != null) {
-														List<Role> listRole = (List<Role>) request.getAttribute("listRole");
-														if (listRole.size() > 0) {
-															for (Role objRole : listRole) {
+														if (request.getAttribute("listDecentralazition") != null) {
+														List<Decentralazition> listDecentralazition = (List<Decentralazition>) request.getAttribute("listDecentralazition");
+														if (listDecentralazition.size() > 0) {
+															for (Decentralazition objDecentralazition : listDecentralazition) {
 													%>
-													<option value="<%=itermRoleForHead.getIdRole()%>"><%=objRole.getNameRole()%></option>
+													<option value="<%=objDecentralazition.getIdRole()%>"><%=objDecentralazition.getNameRole()%></option>
 													<%
 														}
 													}
@@ -86,9 +86,11 @@
 									%>
 								</table>
 								<div class="col-sm-6">
-									<a href="<%=request.getContextPath()%>/admin/decent/edit"
-										class="btn btn-success btn-md">Cập nhật</a>
+									<input href="<%=request.getContextPath()%>/admin/decent/edit"
+										class="btn btn-success btn-md" value="Cập nhật" type="submit">
 								</div>
+								</form>
+								
 							<div class="row">
 
 								<div class="col-sm-6" style="text-align: right;">
@@ -113,26 +115,6 @@
 		</div>
 	</div>
 </div>
-<script>
-		$("img").click(function(){
-		    var image = $(this)
-		    $.ajax({
-				url: '<%=request.getContextPath()%>
-	/admin/decent/index',
-			type : 'POST',
-			cache : false,
-			data : {
-				asrc : image.attr("src")
-			},
-			success : function(data) {
-				image.attr("src", data)
-			},
-			error : function() {
-				alert("Có lỗi xảy ra");
-			}
-		});
-	});
-</script>
 <script>
 	document.getElementById("dencent").classList.add('active-menu');
 </script>
