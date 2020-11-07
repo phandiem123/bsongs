@@ -8,7 +8,7 @@ import java.sql.Statement;
 
 public class DBConnectionUtil {
 //	private static String url = "jdbc:mysql://node236055-bsong-diem.j.layershift.co.uk/bsong?useUnicode=true&characterEncoding=UTF-8";
-	private static String url = "jdbc:mysql://localhost:3306/bsong?useUnicode=true&characterEncoding=UTF-8";
+	private static String url = "jdbc:mysql://localhost:3306/bsongs_diem?useUnicode=true&characterEncoding=UTF-8";
 	private static String user = "root";
 	private static String password = "";
 //	private static String password = "DTFtzh88316";

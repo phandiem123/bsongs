@@ -14,7 +14,6 @@ import dao.DecentralazitionDao;
 import dao.RoleDao;
 import model.Decentralazition;
 import model.Role;
-import util.ImgeasUtils;
 
 public class AdminIndexDecentController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -33,35 +32,33 @@ public class AdminIndexDecentController extends HttpServlet {
 		List<Role> listRole = roleDao.findAll();
 		request.setAttribute("listRole", listRole);
 
-		DecentralazitionDao  decentralazitionDao = new DecentralazitionDao();
+		DecentralazitionDao decentralazitionDao = new DecentralazitionDao();
 		List<Decentralazition> listDecentralazition = decentralazitionDao.findAll();
 		request.setAttribute("listDecentralazition", listDecentralazition);
-		
+
 		RequestDispatcher rd = request.getRequestDispatcher("/view/admin/decent/index.jsp");
 		rd.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		DecentralazitionDao  decentralazitionDao=  new DecentralazitionDao();
+
+		DecentralazitionDao decentralazitionDao = new DecentralazitionDao();
 		String src = request.getParameter("asrc");
-		int idNameCol=Integer.parseInt(request.getParameter("aid")) ;
-		int idobjRole=Integer.parseInt(request.getParameter("aobjRole")) ;
-		String nameCol=ImgeasUtils.ChangeImgeasToNameCol(idNameCol);
-		
+		int id = Integer.parseInt(request.getParameter("aid"));
+		String colName = request.getParameter("aobjRole");
 		PrintWriter out = response.getWriter();
 		int idx = src.lastIndexOf("/");
 		String firstName = src.substring(0, idx + 1);
 		String lastName = src.substring(idx + 1);
 		String fileName = "";
-		
+
 		if (lastName.equals("tick.png")) {
 			fileName = firstName + "cancel.png";
-			int editDecentralazition = decentralazitionDao.editDecentralazition(nameCol, 0, idobjRole);
+			decentralazitionDao.editDecentralazition(colName, 0, id);
 		} else {
 			fileName = firstName + "tick.png";
-			int editDecentralazition = decentralazitionDao.editDecentralazition(nameCol, 1, idobjRole);
+			decentralazitionDao.editDecentralazition(colName, 1, id);
 		}
 		out.print(fileName);
 	}

@@ -10,7 +10,7 @@ import java.sql.Statement;
 public class ConnectDBUtils {
 	private static final String USERNAME = "root" ;
 	private static final String PASSWORD = "" ;
-	private static final String URL = "jdbc:mysql://localhost:3306/bsong?useTimezone=true&serverTimezone=GMT";
+	private static final String URL = "jdbc:mysql://localhost:3306/bsongs_diem?useTimezone=true&serverTimezone=GMT";
 	public static Connection getConnection() {
 		Connection conn = null;
 		try {

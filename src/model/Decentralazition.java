@@ -19,4 +19,5 @@ public class Decentralazition {
 	int editAnother;
 	int delAnother;
 	int idRole;
+	String nameRole;
 }

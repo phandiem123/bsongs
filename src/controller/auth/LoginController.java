@@ -38,10 +38,11 @@ public class LoginController extends HttpServlet {
 		User userInfo = userDao.findByUsernameAndPassword(username, password);
 		
 		if (userInfo != null) {
+			System.out.println(123);
 			// đăng nhập đúng // lưuthông tin đăng nhập vào session.
-			HttpSession session = request.getSession();
-			session.setAttribute("userInfo", userInfo); // chuyển hướng
-			response.sendRedirect(request.getContextPath() + "/admin/index");
+//			HttpSession session = request.getSession();
+//			session.setAttribute("userInfo", userInfo); // chuyển hướng
+//			response.sendRedirect(request.getContextPath() + "/admin/index");
 			return;
 		} else {
 			RequestDispatcher rd = request.getRequestDispatcher("/view/auth/login.jsp");

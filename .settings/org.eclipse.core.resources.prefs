@@ -1,17 +1,2 @@
 eclipse.preferences.version=1
-encoding//WebContent/view/error/error.jsp=UTF-8
-encoding//src/controller/admin/cat/AdminAddCatController.java=UTF-8
-encoding//src/controller/admin/cat/AdminDelCatController.java=UTF-8
-encoding//src/controller/admin/decent/AdminAddRoleController.java=UTF-8
-encoding//src/controller/admin/decent/AdminDasgboardDecentController.java=UTF-8
-encoding//src/controller/admin/decent/AdminEditDecentController.java=UTF-8
-encoding//src/controller/admin/decent/AdminIndexDecentController.java=UTF-8
-encoding//src/controller/admin/song/AdminAddSongController.java=UTF-8
-encoding//src/controller/admin/song/AdminDelSongController.java=UTF-8
-encoding//src/controller/admin/song/AdminEditSongController.java=UTF-8
 encoding//src/controller/auth/LoginController.java=UTF-8
-encoding//src/controller/auth/LogoutController.java=UTF-8
-encoding//src/controller/publics/PublicContactController.java=UTF-8
-encoding//src/controller/publics/PublicDetailController.java=UTF-8
-encoding//src/controller/publics/PublicIndexController.java=UTF-8
-encoding//src/util/StringUtil.java=UTF-8
