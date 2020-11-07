@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+.form-search {
+	border: 1px solid blue;
+	border-radius: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.form-search img {
+	width: 25px;
+	height: 25px;
+	float: left;
+}
+
+.form-search input {
+	float: right;
+	border: none;
+	width: 200px;
+}
+
